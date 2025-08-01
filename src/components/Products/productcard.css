@@ -1,0 +1,75 @@
+.our-products{
+    max-width: 1170px;
+    
+    height: auto;
+    margin-top: 5px;
+    padding-top: 5px;
+    margin-bottom: 20px;
+}
+
+.our-products> .hot-deal{
+    width: 1170px;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: row;   
+}
+.hot-deal > .line{
+    width: 100%;
+    height: 0.5px;
+    background: #6766666e;
+    position: relative;
+    top: 30px;
+}
+.our-products .hot-deal>h2{
+    text-align: center;
+    width: 500px;
+    font-size: 36px;
+}
+.product-card-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    row-gap: 50px;
+    height: auto;
+    margin-top: 30px;
+}
+.product-card-list>div{
+    width: 320px;
+    height: auto;
+    border: 1px solid rgb(217, 227, 227);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.product-card{
+    height: auto;
+    width: 280px;
+    border-radius: 12px;
+    cursor: pointer;
+
+    
+
+}
+.product-card>img{
+
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+    transition: all 0.3;
+}
+.product-card>img:hover{
+    opacity: 0.9;
+    
+}
+.product-card>h2{
+    font-size: 24px;
+}
+
+.product-card>button{
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
