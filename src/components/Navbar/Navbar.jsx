@@ -1,6 +1,6 @@
 // src/components/Navbar.jsx
 import React, { useState } from "react";
-import "./Navbar.css";
+import "./navbar.css";
 import { FaShoppingCart, FaHeart, FaBars, FaTimes } from "react-icons/fa";
 
 export default function Navbar() {
