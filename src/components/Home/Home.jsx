@@ -3,6 +3,7 @@ import Hero from './Hero';
 import "./hero.css";
 import "./home.css";
 import ProductList from '../Products/ProductList';
+import ProductScroller from '../Products/ProductsSlider';
 
 const Home = () => {
   return (
@@ -12,6 +13,9 @@ const Home = () => {
       </div>
       <div>
         <ProductList />
+      </div>
+      <div>
+        <ProductScroller />
       </div>
     </div>
   )

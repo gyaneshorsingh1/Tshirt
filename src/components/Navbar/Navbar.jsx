@@ -1,23 +1,34 @@
-import react from "react";
-import { Link } from "react-router";
-import "./navbar.css";
+// src/components/Navbar.jsx
+import React, { useState } from "react";
+import "./Navbar.css";
+import { FaShoppingCart, FaHeart, FaBars, FaTimes } from "react-icons/fa";
 
-const Navbar = () => {
-    return(
-        <>
-           <nav>
-                <div className="logo">Logo</div>
-                <div className="nav-links">
-                    <Link to="/">Home</Link>
-                    <Link to="/products">Products</Link>
-                    <Link to="/register">Register</Link>
-                </div>
-                <div>
-                    <Link>Cart</Link>
-                </div>
-           </nav>
-        </>
-    )
+export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  return (
+    <nav>
+      {/* Logo */}
+      <div className="logo">MyShop</div>
+
+      {/* Navigation Links */}
+      <ul className={`nav-links ${menuOpen ? "active" : ""}`}>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/products">Products</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+
+      {/* Icons */}
+      <div className="nav-icons">
+        <a href="/wishlist"><FaHeart /></a>
+        <a href="/cart"><FaShoppingCart /></a>
+      </div>
+
+      {/* Mobile Menu Toggle */}
+      <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+        {menuOpen ? <FaTimes /> : <FaBars />}
+      </div>
+    </nav>
+  );
 }
-
-export default Navbar;

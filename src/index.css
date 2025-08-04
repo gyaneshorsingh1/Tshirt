@@ -1,5 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Delius&family=Elsie:wght@400;900&family=League+Spartan:wght@100..900&display=swap');
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Elsie", serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -12,3 +13,16 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.elsie-regular {
+  font-family: "Elsie", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.elsie-black {
+  font-family: "Elsie", serif;
+  font-weight: 900;
+  font-style: normal;
+}
+

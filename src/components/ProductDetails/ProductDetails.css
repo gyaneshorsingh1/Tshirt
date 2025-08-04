@@ -1,0 +1,147 @@
+.product-details {
+  display: flex;
+  gap: 40px;
+  max-width: 1170px;
+  margin: 40px auto;
+  padding: 10px;
+}
+
+.pd-image {
+  flex: 1;
+}
+
+.pd-image .pd-main-image {
+  border-radius: 8px;
+  width: 100%;
+  
+}
+
+.pd-image .thumbnail-gallery {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  width: 100%;
+  justify-content: center;
+}
+
+.pd-image .thumbnail {
+  width: 80px;
+  height: 80px;
+  display: block;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 4px;
+}
+
+.thumbnail:hover,
+.thumbnail.active {
+  border-color: #f39c12;
+}
+
+.product-info {
+  flex: 1;
+}
+
+.product-info h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.product-price {
+  font-size: 22px;
+  color: #f39c12;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.product-description {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.product-material {
+  margin-bottom: 15px;
+}
+
+.size-options {
+  display: flex;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.size-btn {
+  padding: 6px 12px;
+  border: 1px solid #333;
+  background: #fff;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.size-btn.active,
+.size-btn:hover {
+  background: #f39c12;
+  color: #fff;
+}
+
+.color-options {
+  display: flex;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.color-btn {
+  width: 25px;
+  height: 25px;
+  border: 1px solid #333;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.color-btn.active {
+  outline: 2px solid #f39c12;
+}
+
+.add-to-cart {
+  padding: 10px 20px;
+  background: #f39c12;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 15px 0;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.add-to-cart:hover {
+  background: #d6800f;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+
+
+.extra-features{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 50px 0;
+    justify-content: center;
+}
+
+.extra-features>p{
+    border: 1px solid black;
+    padding: 50px;
+    color: #333;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+}
