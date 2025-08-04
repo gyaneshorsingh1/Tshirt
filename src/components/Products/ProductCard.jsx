@@ -2,7 +2,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaStar, FaRegStar } from "react-icons/fa";
-import "./ProductCard.css";
+import "./productCard.css";
 
 export default function ProductCard({ product }) {
   const { id, name, brand, price, images, rating } = product;
