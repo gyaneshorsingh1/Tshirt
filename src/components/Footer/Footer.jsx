@@ -42,7 +42,7 @@ export default function Footer() {
         <div className="footer-section">
           <h3>Subscribe</h3>
           <div className="subscribe-box">
-            <input type="email" placeholder="Enter your email" />
+            <input type="email" name="email" id="email" placeholder="Enter your email" />
             <button><FaEnvelope /></button>
           </div>
         </div>
