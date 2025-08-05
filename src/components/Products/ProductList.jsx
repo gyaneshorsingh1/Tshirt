@@ -9,7 +9,7 @@ const containerVariants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.15, // delay between each product card
+      staggerChildren: 0.2, // delay between each product card
     },
   },
 };
@@ -17,7 +17,7 @@ const containerVariants = {
 // Each product card animation
 const itemVariants = {
   hidden: { opacity: 0, y: 30, scale: 0.9 },
-  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5 } },
+  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 1.5 } },
 };
 
 export default function ProductList() {

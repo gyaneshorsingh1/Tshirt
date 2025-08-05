@@ -24,7 +24,7 @@ export default function Navbar() {
   // Individual item animation
   const itemVariants = {
     hidden: { opacity: 0, y: -20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.2 } },
   };
 
   // For links specifically
@@ -69,6 +69,7 @@ export default function Navbar() {
       {/* Mobile Menu Toggle */}
       <motion.div
         variants={itemVariants}
+        transition={{duration:0}}
         className="menu-toggle"
         onClick={() => setMenuOpen(!menuOpen)}
       >
