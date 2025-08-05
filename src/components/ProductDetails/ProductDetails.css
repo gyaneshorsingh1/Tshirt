@@ -13,7 +13,6 @@
 .pd-image .pd-main-image {
   border-radius: 8px;
   width: 100%;
-  
 }
 
 .pd-image .thumbnail-gallery {
@@ -27,7 +26,6 @@
 .pd-image .thumbnail {
   width: 80px;
   height: 80px;
-  display: block;
   object-fit: cover;
   cursor: pointer;
   border: 2px solid transparent;
@@ -60,12 +58,9 @@
   line-height: 1.6;
 }
 
-.product-material {
-  margin-bottom: 15px;
-}
-
 .size-options {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
   margin: 10px 0;
 }
@@ -76,7 +71,6 @@
   background: #fff;
   color: #333;
   cursor: pointer;
-  transition: all 0.2s ease;
 }
 
 .size-btn.active,
@@ -112,7 +106,6 @@
   font-size: 16px;
   margin: 15px 0;
   border-radius: 4px;
-  transition: background 0.3s ease;
 }
 
 .add-to-cart:hover {
@@ -126,22 +119,86 @@
   color: #333;
 }
 
-
-
-.extra-features{
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    padding: 50px 0;
-    justify-content: center;
+/* ==== Extra Features ==== */
+.extra-features {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  padding: 50px 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-.extra-features>p{
-    border: 1px solid black;
-    padding: 50px;
-    color: #333;
-    border-radius: 12px;
-    cursor: pointer;
-    font-size: 25px;
-    font-weight: bold;
-    text-align: center;
+.extra-features > p {
+  border: 1px solid black;
+  padding: 40px;
+  color: #333;
+  border-radius: 12px;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  flex: 1 1 30%;
+  min-width: 250px;
+  box-sizing: border-box;
+}
+
+/* ==== Tablet View ==== */
+@media (max-width: 992px) {
+  .product-details {
+    flex-direction: column;
+    align-items: center;
+
+  }
+
+  .pd-image {
+    max-width: 500px;
+  }
+
+  .product-info {
+    max-width: 500px;
+    text-align: start;
+
+  }
+
+  .extra-features {
+    padding: 30px 10px;
+    flex-direction: row;
+  }
+
+  .extra-features > p {
+    font-size: 20px;
+    padding: 25px;
+  }
+}
+
+/* ==== Mobile View ==== */
+@media (max-width: 600px) {
+  .pd-image .thumbnail {
+    width: 60px;
+    height: 60px;
+  }
+
+  .product-info h2 {
+    font-size: 22px;
+  }
+
+  .product-price {
+    font-size: 18px;
+  }
+
+  .add-to-cart {
+    width: 100%;
+  }
+
+  .extra-features {
+    gap: 15px;
+    padding: 20px 10px;
+  }
+
+  .extra-features > p {
+    font-size: 18px;
+    padding: 20px;
+    flex: 1 1 100%;
+  }
 }
