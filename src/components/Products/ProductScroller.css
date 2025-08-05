@@ -1,6 +1,6 @@
-/* src/components/ProductScroller.css */
+/* ===== Desktop (default) ===== */
 .product-section {
-    margin-top: 50px;
+  margin-top: 50px;
   padding: 20px;
 }
 
@@ -20,7 +20,6 @@
   scroll-snap-type: x mandatory;
   padding-bottom: 10px;
   scrollbar-width: none;
-  
 }
 
 .product-scroller::-webkit-scrollbar {
@@ -57,7 +56,6 @@
   color: black;
   border: none;
   font-size: 20px;
-  
   height: 40px;
   width: 40px;
   display: flex;
@@ -71,3 +69,50 @@
 
 .left { left: 10px; }
 .right { right: 10px; }
+
+/* ===== Tablet (max-width: 768px) ===== */
+@media (max-width: 768px) {
+  .product-section h2 {
+    font-size: 28px;
+  }
+
+  .product-card {
+    width: 200px; /* slightly smaller */
+  }
+
+  .scroll-btn {
+    font-size: 18px;
+    height: 35px;
+    width: 35px;
+  }
+}
+
+/* ===== Mobile (max-width: 480px) ===== */
+@media (max-width: 480px) {
+  .product-section h2 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .product-scroller {
+    gap: 10px; /* tighter gap */
+  }
+
+  .product-card {
+    width: 160px; /* smaller for mobile */
+    padding: 8px;
+  }
+
+  .product-card img {
+    border-radius: 8px;
+  }
+
+  .scroll-btn {
+    font-size: 16px;
+    height: 30px;
+    width: 30px;
+  }
+
+  .left { left: 5px; }
+  .right { right: 5px; }
+}
