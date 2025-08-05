@@ -2,14 +2,37 @@
 import React from "react";
 import "./Footer.css";
 import { FaFacebookF, FaTwitter, FaInstagram, FaEnvelope } from "react-icons/fa";
+import { motion } from "framer-motion";
+
+// Parent animation for staggering
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.3, // delay between each section
+    },
+  },
+};
+
+// Each section animation
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
 
 export default function Footer() {
   return (
-    <footer className="footer">
-      <div className="footer-container">
-
+    <motion.footer
+      className="footer"
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }} // trigger when 20% visible
+    >
+      <motion.div className="footer-container" variants={containerVariants}>
+        
         {/* Navigation Links */}
-        <div className="footer-section">
+        <motion.div className="footer-section" variants={itemVariants}>
           <h3>Quick Links</h3>
           <ul>
             <li><a href="/">Home</a></li>
@@ -17,40 +40,41 @@ export default function Footer() {
             <li><a href="/products">Products</a></li>
             <li><a href="/contact">Contact</a></li>
           </ul>
-        </div>
+        </motion.div>
 
         {/* About */}
-        <div className="footer-section">
+        <motion.div className="footer-section" variants={itemVariants}>
           <h3>About Us</h3>
           <p>
             We offer high-quality products and aim to provide the best shopping
             experience. Your satisfaction is our top priority.
           </p>
-        </div>
+        </motion.div>
 
         {/* Social Media */}
-        <div className="footer-section">
+        <motion.div className="footer-section" variants={itemVariants}>
           <h3>Follow Us</h3>
           <div className="social-icons">
             <a href="#"><FaFacebookF /></a>
             <a href="#"><FaTwitter /></a>
             <a href="#"><FaInstagram /></a>
           </div>
-        </div>
+        </motion.div>
 
         {/* Email Subscription */}
-        <div className="footer-section">
+        <motion.div className="footer-section" variants={itemVariants}>
           <h3>Subscribe</h3>
           <div className="subscribe-box">
             <input type="email" name="email" id="email" placeholder="Enter your email" />
             <button><FaEnvelope /></button>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
-      <div className="footer-bottom">
+      {/* Footer Bottom */}
+      <motion.div className="footer-bottom" variants={itemVariants}>
         <p>© {new Date().getFullYear()} MyShop. All rights reserved.</p>
-      </div>
-    </footer>
+      </motion.div>
+    </motion.footer>
   );
 }

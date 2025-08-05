@@ -3,6 +3,20 @@ import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import products from "../../data/ProductsData.jsx";
 import "./ProductDetails.css";
+import { motion } from "framer-motion";
+
+// Animation settings
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.3 }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+};
 
 export default function ProductDetails() {
   const { id } = useParams();
@@ -20,9 +34,16 @@ export default function ProductDetails() {
 
   return (
     <>
-      <div className="product-details">
+      {/* Main Product Details Section */}
+      <motion.div
+        className="product-details"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
         {/* Image Gallery */}
-        <div className="pd-image">
+        <motion.div className="pd-image" variants={itemVariants}>
           <img
             src={selectedImage}
             alt={product.name}
@@ -32,19 +53,22 @@ export default function ProductDetails() {
           {/* Thumbnails */}
           <div className="thumbnail-gallery">
             {(product?.images || []).map((img, index) => (
-              <img
+              <motion.img
                 key={index}
                 src={img}
                 alt={`${product.name} ${index + 1}`}
-                className={`thumbnail ${selectedImage === img ? "active" : ""}`}
+                className={`thumbnail ${
+                  selectedImage === img ? "active" : ""
+                }`}
                 onClick={() => setSelectedImage(img)}
+                variants={itemVariants}
               />
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Info Section */}
-        <div className="product-info">
+        <motion.div className="product-info" variants={itemVariants}>
           <h2>{product.name}</h2>
           <p className="product-brand">
             <strong>Brand:</strong> {product.brand}
@@ -65,7 +89,7 @@ export default function ProductDetails() {
           </p>
 
           {/* Size Selector */}
-          <div className="product-sizes">
+          <motion.div className="product-sizes" variants={itemVariants}>
             <strong>Size:</strong>
             <div className="size-options">
               {product.sizes.map((size) => (
@@ -80,10 +104,10 @@ export default function ProductDetails() {
                 </button>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Color Selector */}
-          <div className="product-colors">
+          <motion.div className="product-colors" variants={itemVariants}>
             <strong>Color:</strong>
             <div className="color-options">
               {product.colors.map((color) => (
@@ -97,26 +121,32 @@ export default function ProductDetails() {
                 ></button>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Actions */}
-          <button className="add-to-cart">Add to Cart</button>
-          <Link to="/" className="back-link">
-            ← Back to Products
-          </Link>
-        </div>
-      </div>
-      <div className="product-details extra-features">
-        <p>
-          {product.delivery}
-        </p>
-        <p>
-           {product.shipping}
-        </p>
-        <p>
-          {product.returns}
-        </p>
-      </div>
+          <motion.button className="add-to-cart" variants={itemVariants}>
+            Add to Cart
+          </motion.button>
+          <motion.div variants={itemVariants}>
+            <Link to="/" className="back-link">
+              ← Back to Products
+            </Link>
+          </motion.div>
+        </motion.div>
+      </motion.div>
+
+      {/* Extra Features Section */}
+      <motion.div
+        className="product-details extra-features"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        <motion.p variants={itemVariants}>{product.delivery}</motion.p>
+        <motion.p variants={itemVariants}>{product.shipping}</motion.p>
+        <motion.p variants={itemVariants}>{product.returns}</motion.p>
+      </motion.div>
     </>
   );
 }

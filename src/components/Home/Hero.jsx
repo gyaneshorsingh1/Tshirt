@@ -1,10 +1,23 @@
 import React from 'react'
-
+import banner from "../../assets/banner.webp/";
+import {motion} from "framer-motion";
 const Hero = () => {
   return (
-    <div className='hero-img'>
-      <img src="https://cdn11.bigcommerce.com/s-zcm8hjy571/images/stencil/original/uploaded_images/blog-4.jpg?t=1555025927" alt="" />
-    </div>
+    <motion.div 
+    initial={{
+      opacity:0,
+      x:50
+    }}
+    animate={{
+      opacity:1,
+      x:0
+    }}
+    transition={{
+      duration:2
+    }}
+    className='hero-img'>
+      <img src={banner} alt="" />
+    </motion.div>
   )
 }
 
