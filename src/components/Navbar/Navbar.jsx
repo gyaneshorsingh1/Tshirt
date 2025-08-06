@@ -3,11 +3,16 @@ import React, { useState } from "react";
 import "./navbar.css";
 import { FaShoppingCart, FaHeart, FaBars, FaTimes } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { useWishlist } from "../../context/WishlistContext";
+import { useCart } from "../../context/CartContext";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Parent navbar container
+  const { cart } = useCart();
+  const { wishlist } = useWishlist();
+
   const navVariants = {
     hidden: { opacity: 0, y: -100 },
     visible: {
@@ -15,24 +20,22 @@ export default function Navbar() {
       y: 0,
       transition: {
         duration: 0.5,
-        when: "beforeChildren", // make sure children animate after
-        staggerChildren: 0.2, // delay between children
+        when: "beforeChildren",
+        staggerChildren: 0.2,
       },
     },
   };
 
-  // Individual item animation
   const itemVariants = {
     hidden: { opacity: 0, y: -20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.2 } },
   };
 
-  // For links specifically
   const linksContainer = {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: 0.15, // delay between each link
+        staggerChildren: 0.15,
       },
     },
   };
@@ -46,30 +49,34 @@ export default function Navbar() {
 
       {/* Navigation Links */}
       <motion.ul
-        variants={linksContainer} // special container for staggering links
+        variants={linksContainer}
         className={`nav-links ${menuOpen ? "active" : ""}`}
       >
         {["Home", "About", "Products", "Contact"].map((link) => (
           <motion.li key={link} variants={itemVariants}>
-            <a href={`/${link.toLowerCase()}`}>{link}</a>
+            <Link to={`/${link.toLowerCase()}`} onClick={() => setMenuOpen(false)}>
+              {link}
+            </Link>
           </motion.li>
         ))}
       </motion.ul>
 
-      {/* Icons */}
+      {/* Icons with counts */}
       <motion.div variants={itemVariants} className="nav-icons">
-        <a href="/wishlist">
+        <Link to="/wishlist" className="wishlist-link">
           <FaHeart />
-        </a>
-        <a href="/cart">
+          {wishlist.length > 0 && <span className="count">{wishlist.length}</span>}
+        </Link>
+        <Link to="/cart" className="cart-link">
           <FaShoppingCart />
-        </a>
+          {cart.length > 0 && <span className="count">{cart.length}</span>}
+        </Link>
       </motion.div>
 
       {/* Mobile Menu Toggle */}
       <motion.div
         variants={itemVariants}
-        transition={{duration:0}}
+        transition={{ duration: 0 }}
         className="menu-toggle"
         onClick={() => setMenuOpen(!menuOpen)}
       >

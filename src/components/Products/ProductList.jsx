@@ -39,7 +39,13 @@ export default function ProductList() {
       >
         {products.map((product) => (
           <motion.div key={product.id} variants={itemVariants}>
-            <ProductCard product={product} />
+            <ProductCard
+              product={product}
+              onAddToCart={(item) => console.log("Added to cart:", item)}
+              onToggleWishlist={(item) =>
+                console.log("Wishlist toggled:", item)
+              }
+            />
           </motion.div>
         ))}
       </motion.div>

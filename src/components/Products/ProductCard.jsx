@@ -1,14 +1,34 @@
-// src/components/ProductCard.jsx
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaStar, FaRegStar } from "react-icons/fa";
+import { FaStar, FaRegStar, FaHeart, FaRegHeart } from "react-icons/fa";
+
 import "./ProductCard.css";
+import { useCart } from "../../context/CartContext.jsx";
+import { useWishlist } from "../../context/WishlistContext.jsx";
 
 export default function ProductCard({ product }) {
   const { id, name, brand, price, images, rating } = product;
+  const { addToCart } = useCart();
+  const { wishlist, toggleWishlist } = useWishlist();
+
+  const isWishlisted = wishlist.some((item) => item.id === id);
 
   return (
     <div className="product-card">
+      <div
+        className="wishlist-icon"
+        onClick={(e) => {
+          e.preventDefault();
+          toggleWishlist(product);
+        }}
+      >
+        {isWishlisted ? (
+          <FaHeart className="heart filled" />
+        ) : (
+          <FaRegHeart className="heart" />
+        )}
+      </div>
+
       <Link to={`/product/${id}`}>
         <div className="product-image">
           <img src={images[0]} alt={name} className="main-img" />
@@ -30,6 +50,10 @@ export default function ProductCard({ product }) {
             )
           )}
         </div>
+
+        <button className="add-to-cart-btn" onClick={() => addToCart(product)}>
+          Add to Cart
+        </button>
       </div>
     </div>
   );

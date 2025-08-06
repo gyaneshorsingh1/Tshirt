@@ -57,6 +57,30 @@ nav a:hover {
   color: #333333;
 }
 
+.nav-icons {
+  display: flex;
+  gap: 15px;
+  position: relative;
+}
+
+.nav-icons a {
+  position: relative;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.count {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background: red;
+  color: white;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+
+
 /* Responsive */
 @media (max-width: 768px) {
   nav > .nav-links {

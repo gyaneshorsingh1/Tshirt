@@ -163,6 +163,44 @@
 }
 
 
+.cart-wishlist-btn{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.wishlist-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.heart {
+  font-size: 1.5rem;
+  color: #888;
+  transition: color 0.3s ease;
+}
+
+.heart.filled {
+  color: red;
+}
+
+.add-to-cart-btn {
+  width: 100%;
+  padding: 8px;
+  margin-top: 8px;
+  background: #ff6600;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+  background: #e65500;
+}
 
 
 /* Responsive adjustments */
