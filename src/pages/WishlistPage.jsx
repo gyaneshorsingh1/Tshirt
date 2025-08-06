@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useWishlist } from "../context/WishlistContext";
 import { useCart } from "../context/CartContext";
 import "./WishlistPage.css";
@@ -17,9 +18,19 @@ export default function WishlistPage() {
       <div className="wishlist-items">
         {wishlist.map((item) => (
           <div key={item.id} className="wishlist-item">
-            <img src={item.images[0]} alt={item.name} />
-            <p><strong>{item.name}</strong></p>
+            {/* Clickable Image */}
+            <Link to={`/product/${item.id}`} className="wishlist-img-link">
+              <img src={item.images[0]} alt={item.name} />
+            </Link>
+
+            {/* Clickable Name */}
+            <Link to={`/product/${item.id}`} className="wishlist-name-link">
+              <p><strong>{item.name}</strong></p>
+            </Link>
+
             <p>${item.price}</p>
+
+            {/* Action Buttons */}
             <div className="wishlist-buttons">
               <button
                 className="icon-btn add-cart-icon"

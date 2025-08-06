@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import "./CartPage.css";
 
@@ -22,7 +23,6 @@ export default function CartPage() {
     );
     console.log("Buying these products:", selectedProducts);
     alert(`Proceeding to checkout with ${selectedProducts.length} products.`);
-    // Redirect to checkout here
   };
 
   if (cart.length === 0) return <h2 className="cart-page">Your cart is empty</h2>;
@@ -33,25 +33,41 @@ export default function CartPage() {
       <div className="cart-items">
         {cart.map((item) => (
           <div key={item.id} className="cart-item">
+            {/* Checkbox */}
             <input
               type="checkbox"
-              className="cart-checkbox"
               checked={selectedItems.includes(item.id)}
               onChange={() => handleSelect(item.id)}
+              className="cart-checkbox"
             />
-            <img src={item.images[0]} alt={item.name} />
+
+            {/* Clickable Image */}
+            <Link to={`/product/${item.id}`} className="cart-img-link">
+              <img src={item.images[0]} alt={item.name} />
+            </Link>
+
+            {/* Clickable Name */}
             <div className="cart-item-info">
-              <p><strong>{item.name}</strong></p>
+              <Link to={`/product/${item.id}`} className="cart-name-link">
+                <p><strong>{item.name}</strong></p>
+              </Link>
               <p>${item.price}</p>
               <p>Qty: {item.quantity}</p>
             </div>
+
+            {/* Remove Button */}
             <div className="cart-item-actions">
-              <button onClick={() => removeFromCart(item.id)}>Remove</button>
+              <button
+                className="remove-icon"
+                onClick={() => removeFromCart(item.id)}
+              >
+                Remove
+              </button>
             </div>
           </div>
         ))}
       </div>
-
+      
       <div className="cart-footer">
         <button className="buy-selected-btn" onClick={handleBuySelected}>
           Buy Selected

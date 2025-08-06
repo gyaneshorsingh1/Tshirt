@@ -70,6 +70,11 @@
   background: #e03a3a;
 }
 
+.wishlist-item-link {
+  color: inherit;
+  text-decoration: none;
+  display: block; /* Ensures link covers the whole item */
+}
 
 @media screen and (max-width:650px) {
     .wishlist-items{
