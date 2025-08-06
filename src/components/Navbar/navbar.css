@@ -103,7 +103,16 @@ nav a:hover {
     display: block;
   }
 
+  /* Show icons on mobile */
   .nav-icons {
-    display: none;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    position: absolute;
+    top: auto;
+    right: 60px; /* position before menu icon */
+    
+    transform: translateY(-50%);
   }
 }
+
