@@ -267,4 +267,7 @@
   .product-list{
     align-content: top;
    }
+   .product-image{
+    height: 180px;
+   }
 }

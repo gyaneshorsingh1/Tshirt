@@ -1,0 +1,70 @@
+
+.loginsignup{
+    max-width: 1170px;
+    margin: auto;
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    padding: 10px;
+
+}
+.auth-container {
+  background: white;
+  border-radius: 10px;
+  padding: 40px;
+  width: 300px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+  margin: auto;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+}
+
+.form-box h2 {
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.form-box form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-box input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-box button {
+  padding: 10px;
+  background-color: #1e3c72;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-box button:hover {
+  background-color: #2a5298;
+}
+
+.toggle {
+  color: #2a5298;
+  text-align: center;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.message {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  text-align: center;
+  color: green;
+}
+
+.message:has(> span.error) {
+  color: red;
+}
